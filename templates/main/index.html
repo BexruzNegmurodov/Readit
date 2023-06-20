@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css1/main.css' %}">
+    <div class="hero-wrap js-fullheight" style="wbackground-image: url({% static 'images/bg_1.jpg' %});"
+         data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+                 data-scrollax-parent="true">
+                <div class="col-md-12 ftco-animate">
+                    <h2 class="subheading">Hello! Welcome to</h2>
+                    <h1 class="mb-4 mb-md-0">Readit blog</h1>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="text">
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
+                                    Consonantia,
+                                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast
+                                    of
+                                    the Semantics, a large language ocean.</p>
+                                <div class="mouse">
+                                    <a href="#" class="mouse-icon">
+                                        <div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section" id="bloc_home_page">
+        <div class="container">
+            <div class="row">
+                {% for i in obj %}
+                    <div class="col-md-12">
+                        <div class="case">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                                    <a href="{{ i.full_url }}" class="img w-100 mb-3 mb-md-0"
+                                       style="background-image: url({{ i.image.url }});"></a>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                                    <div class="text w-100 pl-md-3">
+                                        <span class="subheading">{{ i.category }}</span>
+                                        <h2><a href="{{ i.full_url }}">{{ i.title|slice:40 }}...</a></h2>
+                                        <ul class="media-social list-unstyled">
+                                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                            </li>
+                                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                            </li>
+                                            <li class="ftco-animate"><a href="#"><span
+                                                    class="icon-instagram"></span></a></li>
+                                        </ul>
+                                        <div class="meta">
+                                            <p class="mb-0"><a href="#">{{ i.created_date|date:"d/m/Y  H:i" }}</a> | <a
+                                                    href="#"><img
+                                                    src="{% static 'images/eye.png' %}" alt=""
+                                                    class="eye"> {{ i.views }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% include 'paginator.html' %}
+        </div>
+    </section>
+
+{% endblock %}

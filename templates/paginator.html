@@ -1,0 +1,21 @@
+<div class="row mt-5">
+    <div class="col text-center">
+        <div class="block-27">
+            <ul>
+                {% if obj.has_previous %}
+                    <li><a href="?page={{ obj.previous_page_number }}#bloc_home_page">&lt;</a></li>
+                {% endif %}
+                {% for i in obj.paginator.page_range %}
+                    {% if i == obj.number %}
+                        <li class="active"><span>{{ i }}</span></li>
+                    {% else %}
+                        <li><a href="?page={{ i }}#bloc_home_page">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if obj.has_next %}
+                    <li><a href="?page={{ obj.next_page_number }}#bloc_home_page">&gt;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.eye {
+    width: 15px;
+    margin-top: -3px;
+}
+
+.img-fluid#author-image{
+    width: 264px;
+    height: 245px;
+    border-radius: 100px;
+}
+
+.bio{
+    padding: 10px;
+}
+.row#single{
+    margin-left: 9px;
+    background-color: #ffffff;
+}
+.article-home{
+    margin-left: 20px;
+    margin-top: -30px;
+    margin-right: 20px;
+}
+.row#category{
+    margin-left: 20px;
+}
+.cat-tag{
+     margin-left: 20px;
+}
